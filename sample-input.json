@@ -1,0 +1,46 @@
+{
+  "nodes": [
+    {
+      "id": "sensor-temp",
+      "kind": "sensor"
+    },
+    {
+      "id": "plc-1",
+      "kind": "controller"
+    },
+    {
+      "id": "twin-api",
+      "kind": "service"
+    },
+    {
+      "id": "xr-view",
+      "kind": "consumer"
+    },
+    {
+      "id": "alert",
+      "kind": "consumer"
+    }
+  ],
+  "edges": [
+    {
+      "from": "sensor-temp",
+      "to": "plc-1"
+    },
+    {
+      "from": "plc-1",
+      "to": "twin-api"
+    },
+    {
+      "from": "twin-api",
+      "to": "xr-view"
+    },
+    {
+      "from": "twin-api",
+      "to": "alert"
+    }
+  ],
+  "failures": [
+    "sensor-temp",
+    "twin-api"
+  ]
+}

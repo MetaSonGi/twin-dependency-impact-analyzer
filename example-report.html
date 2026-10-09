@@ -1,0 +1,79 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>트윈 의존성 영향 분석기</title><style>body{font:16px/1.6 system-ui;max-width:1000px;margin:30px auto;padding:20px;background:#101b2b;color:#eef7ff}pre{background:#192b40;padding:22px;border-radius:12px;white-space:pre-wrap}h1{color:#79e3c2}</style><h1>트윈 의존성 영향 분석기</h1><p>오프라인 합성 예제 · 실물 장비 연결 없음</p><pre>{
+  &quot;impacts&quot;: [
+    {
+      &quot;failure&quot;: &quot;sensor-temp&quot;,
+      &quot;affected&quot;: [
+        {
+          &quot;id&quot;: &quot;sensor-temp&quot;,
+          &quot;distance&quot;: 0,
+          &quot;kind&quot;: &quot;sensor&quot;
+        },
+        {
+          &quot;id&quot;: &quot;plc-1&quot;,
+          &quot;distance&quot;: 1,
+          &quot;kind&quot;: &quot;controller&quot;
+        },
+        {
+          &quot;id&quot;: &quot;twin-api&quot;,
+          &quot;distance&quot;: 2,
+          &quot;kind&quot;: &quot;service&quot;
+        },
+        {
+          &quot;id&quot;: &quot;alert&quot;,
+          &quot;distance&quot;: 3,
+          &quot;kind&quot;: &quot;consumer&quot;
+        },
+        {
+          &quot;id&quot;: &quot;xr-view&quot;,
+          &quot;distance&quot;: 3,
+          &quot;kind&quot;: &quot;consumer&quot;
+        }
+      ]
+    },
+    {
+      &quot;failure&quot;: &quot;twin-api&quot;,
+      &quot;affected&quot;: [
+        {
+          &quot;id&quot;: &quot;twin-api&quot;,
+          &quot;distance&quot;: 0,
+          &quot;kind&quot;: &quot;service&quot;
+        },
+        {
+          &quot;id&quot;: &quot;alert&quot;,
+          &quot;distance&quot;: 1,
+          &quot;kind&quot;: &quot;consumer&quot;
+        },
+        {
+          &quot;id&quot;: &quot;xr-view&quot;,
+          &quot;distance&quot;: 1,
+          &quot;kind&quot;: &quot;consumer&quot;
+        }
+      ]
+    }
+  ],
+  &quot;critical_nodes&quot;: [
+    {
+      &quot;id&quot;: &quot;sensor-temp&quot;,
+      &quot;downstream_count&quot;: 4
+    },
+    {
+      &quot;id&quot;: &quot;plc-1&quot;,
+      &quot;downstream_count&quot;: 3
+    },
+    {
+      &quot;id&quot;: &quot;twin-api&quot;,
+      &quot;downstream_count&quot;: 2
+    },
+    {
+      &quot;id&quot;: &quot;alert&quot;,
+      &quot;downstream_count&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;xr-view&quot;,
+      &quot;downstream_count&quot;: 0
+    }
+  ],
+  &quot;cycles&quot;: [],
+  &quot;issues&quot;: [],
+  &quot;direction&quot;: &quot;provider_to_consumer&quot;
+}</pre>

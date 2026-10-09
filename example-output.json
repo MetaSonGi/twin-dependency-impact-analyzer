@@ -1,0 +1,79 @@
+{
+  "impacts": [
+    {
+      "failure": "sensor-temp",
+      "affected": [
+        {
+          "id": "sensor-temp",
+          "distance": 0,
+          "kind": "sensor"
+        },
+        {
+          "id": "plc-1",
+          "distance": 1,
+          "kind": "controller"
+        },
+        {
+          "id": "twin-api",
+          "distance": 2,
+          "kind": "service"
+        },
+        {
+          "id": "alert",
+          "distance": 3,
+          "kind": "consumer"
+        },
+        {
+          "id": "xr-view",
+          "distance": 3,
+          "kind": "consumer"
+        }
+      ]
+    },
+    {
+      "failure": "twin-api",
+      "affected": [
+        {
+          "id": "twin-api",
+          "distance": 0,
+          "kind": "service"
+        },
+        {
+          "id": "alert",
+          "distance": 1,
+          "kind": "consumer"
+        },
+        {
+          "id": "xr-view",
+          "distance": 1,
+          "kind": "consumer"
+        }
+      ]
+    }
+  ],
+  "critical_nodes": [
+    {
+      "id": "sensor-temp",
+      "downstream_count": 4
+    },
+    {
+      "id": "plc-1",
+      "downstream_count": 3
+    },
+    {
+      "id": "twin-api",
+      "downstream_count": 2
+    },
+    {
+      "id": "alert",
+      "downstream_count": 0
+    },
+    {
+      "id": "xr-view",
+      "downstream_count": 0
+    }
+  ],
+  "cycles": [],
+  "issues": [],
+  "direction": "provider_to_consumer"
+}
